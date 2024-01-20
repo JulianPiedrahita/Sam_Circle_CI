@@ -9,7 +9,16 @@ jobs:
     steps:
       - run: echo hola
 
+  despedida:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo pre adios
+      - run: echo adios
+      - run: echo post adios      
+
 workflows:  
   hello:
     jobs:
-      - saluda      
+      - saluda   
+      - despedida   
