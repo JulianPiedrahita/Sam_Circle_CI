@@ -21,4 +21,14 @@ workflows:
   hello:
     jobs:
       - saluda   
-      - despedida   
+      - despedida 
+  approval_manual:
+    jobs:
+      - saluda
+      - approval:
+          type: approval
+          requires:
+            - saluda
+      - despedida:
+          requires:
+            - approval
